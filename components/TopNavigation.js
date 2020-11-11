@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { View, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { List, Divider } from 'react-native-paper';
 import Modal from 'react-native-modal';
-import Account from './Account';
-import Camera from './Camera'
-import Search from './Search'
+import AccountDialog from './AccountDialog';
+import CameraDialog from './CameraDialog';
+import SearchDialog from './SearchDialog';
+import ScreenDialog from './ScreenDialog';
 
 const TopNavigation = () => {
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
@@ -69,31 +69,9 @@ const TopNavigation = () => {
             margin: 0
           }}
         >
-          <View style={{ backgroundColor: 'white' }}>
-            <List.Section>
-              <List.Subheader>Połącz się z urządzeniem:</List.Subheader>
-              <List.Item
-                title='AirPlay & Bluetooth devices'
-                left={() => <List.Icon icon='airplay' />}
-              />
-              <List.Item
-                title='Połącz za pomocą kodu z telewizora'
-                left={() => <List.Icon color='#000' icon='television-play' />}
-              />
-              <List.Item
-                title='Więcej informacji'
-                left={() => (
-                  <List.Icon color='#000' icon='information-outline' />
-                )}
-              />
-              <Divider />
-              <List.Item
-                title='Anuluj'
-                left={() => <List.Icon color='#000' icon='close' />}
-                onPress={() => setModalScreenVisible(!modalScreenVisible)}
-              />
-            </List.Section>
-          </View>
+          <ScreenDialog
+            close={() => setModalScreenVisible(!modalScreenVisible)}
+          />
         </Modal>
       </View>
 
@@ -106,7 +84,7 @@ const TopNavigation = () => {
           }}
         >
           <View style={{ backgroundColor: 'white', flex: 1 }}>
-            <Account
+            <AccountDialog
               close={() => setModalAccountVisible(!modalAccountVisible)}
             />
           </View>
@@ -122,7 +100,9 @@ const TopNavigation = () => {
           }}
         >
           <View style={{ backgroundColor: '#222', flex: 1 }}>
-            <Camera close={() => setModalCameraVisible(!modalCameraVisible)} />
+            <CameraDialog
+              close={() => setModalCameraVisible(!modalCameraVisible)}
+            />
           </View>
         </Modal>
       </View>
@@ -136,7 +116,9 @@ const TopNavigation = () => {
           }}
         >
           <View style={{ backgroundColor: 'white', flex: 1 }}>
-            <Search close={() => setModalSearchVisible(!modalSearchVisible)} />
+            <SearchDialog
+              close={() => setModalSearchVisible(!modalSearchVisible)}
+            />
           </View>
         </Modal>
       </View>
