@@ -8,11 +8,13 @@ const ChipDiscover = (props) => {
       onPress={() => console.log('Pressed')}
       style={{
         height: 50,
-        width: '45%',
+        width: '90%',
         alignItems: 'center',
-        margin: 5
+        margin: 8,
+        backgroundColor: props.color
       }}
       onPress={props.press}
+      selectedColor='white'
     >
       {props.title}
     </Chip>

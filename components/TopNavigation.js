@@ -25,7 +25,7 @@ const TopNavigation = () => {
       <Image
         source={require('../images/logo.png')}
         resizeMode='contain'
-        style={{ height: 30, width: '40%', left: 0 }}
+        style={{ height: 25, width: '40%', left: 0 }}
       />
       <View
         style={{
@@ -33,7 +33,7 @@ const TopNavigation = () => {
           justifyContent: 'space-around',
           right: 0,
           position: 'absolute',
-          width: '60%'
+          width: '55%'
         }}
       >
         <MaterialCommunityIcons
