@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { List, Divider } from 'react-native-paper';
@@ -6,12 +6,14 @@ import Modal from 'react-native-modal';
 import CameraDialog from '../CameraDialog';
 import SearchDialog from '../SearchDialog';
 import ScreenDialog from '../ScreenDialog';
+import { AppContext } from '../AppContext';
 
 const TopNavigationDiscovery = (props) => {
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
   const [modalCameraVisible, setModalCameraVisible] = useState(false);
   const [modalOptionsVisible, setModalOptionsVisible] = useState(false);
   const [modalSearchVisible, setModalSearchVisible] = useState(false);
+  const {titleNavigation} = useContext(AppContext)
 
   return (
     <View
@@ -29,14 +31,14 @@ const TopNavigationDiscovery = (props) => {
         style={{ marginLeft: 20 }}
         onPress={props.back}
       />
-      <Text>Na czasie</Text>
+      <Text>{titleNavigation}</Text>
       <View
         style={{
           flexDirection: 'row',
           justifyContent: 'space-around',
           right: 0,
           position: 'absolute',
-          width: '60%'
+          width: '55%'
         }}
       >
         <MaterialCommunityIcons
