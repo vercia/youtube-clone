@@ -1,14 +1,14 @@
-import React, { useState,useEffect } from 'react';
-import { Text, View, FlatList,Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, FlatList,Button } from 'react-native';
 import { Card, Title, Paragraph, TextInput } from 'react-native-paper';
+import TopNavigation from './TopNavigation'
 
-const KEY = '0AIzaSyAVw7IzucRLzgB5iUfrl_wG51npKD8Sk_U';
+const KEY = 'AIzaSyAVw7IzucRLzgB5iUfrl_wG51npKD8Sk_U';
 
 // `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=songs&type=video&key=${KEY}`
 
 const HomeScreen = () => {
   const [cardData, setCardData] = useState([]);
-  const [value, setValue] = useState([]);
 
   const fetchData = () => {
     fetch(
@@ -23,6 +23,7 @@ const HomeScreen = () => {
 
   return (
     <View>
+      <TopNavigation />
       <Button title='kupa' onPress={() => fetchData()}></Button>
       <FlatList
         data={cardData}
