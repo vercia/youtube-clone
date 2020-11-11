@@ -1,48 +1,17 @@
-import React, { useState } from 'react';
-import { View, FlatList,Button } from 'react-native';
-import { Card, Title, Paragraph, TextInput } from 'react-native-paper';
-import TopNavigation from './TopNavigation'
-
-const KEY = 'AIzaSyAVw7IzucRLzgB5iUfrl_wG51npKD8Sk_U';
-
-// `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=songs&type=video&key=${KEY}`
+import React, { useContext } from 'react';
+import { View } from 'react-native';
+import TopNavigation from './TopNavigation';
+import CardElement from './CardElement';
+import { AppContext } from './AppContext';
 
 const HomeScreen = () => {
-  const [cardData, setCardData] = useState([]);
-
-  const fetchData = () => {
-    fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=10&key=${KEY}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setCardData(data.items);
-      });
-  };
+  const { KEY } = useContext(AppContext);
 
   return (
     <View>
       <TopNavigation />
-      <Button title='kupa' onPress={() => fetchData()}></Button>
-      <FlatList
-        data={cardData}
-        renderItem={({ item }) => {
-          return (
-            <Card>
-              <Card.Cover
-                source={{ uri: item.snippet.thumbnails.medium.url }}
-              />
-              <Card.Content>
-                <Title>{item.snippet.title}</Title>
-                <Paragraph>
-                  {item.snippet.channelTitle} , {item.statistics.viewCount} ,{' '}
-                  {item.snippet.publishedAt.slice(0, 10)}
-                </Paragraph>
-              </Card.Content>
-            </Card>
-          );
-        }}
+      <CardElement
+        apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=10&key=${KEY}`}
       />
     </View>
   );
