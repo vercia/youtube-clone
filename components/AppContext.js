@@ -1,19 +1,20 @@
 import React, { createContext, useState } from 'react';
-import TopNavigation from './TopNavigation';
 
 export const AppContext = createContext();
 
-export default function AppContextProvider(props) { 
-    const [chipState,setChipState] = useState(false)
+export default function AppContextProvider(props) {
+  const KEY = '0AIzaSyAthwZijUeqfiR1FDUgH8cEIfYnbkTijjM';
+  const [titleNavigation, setTitleNavigation] = useState('');
 
-    return (
-        <AppContext.Provider
-            value={{
-                chipState,
-                setChipState
-            }}
-        >
-            {props.children}
-        </AppContext.Provider>
-    );
+  return (
+    <AppContext.Provider
+      value={{
+        titleNavigation,
+        setTitleNavigation,
+        KEY
+      }}
+    >
+      {props.children}
+    </AppContext.Provider>
+  );
 }
