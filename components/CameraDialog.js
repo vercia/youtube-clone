@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import { Button, Divider, List, Appbar } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
-const Camera = (props) => {
+const CameraDialog = (props) => {
   return (
     <View style={{ justifyContent: 'center', flex: 1 }}>
       <MaterialCommunityIcons
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Camera;
+export default CameraDialog;

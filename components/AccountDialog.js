@@ -3,7 +3,7 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import { Button, Divider, List, Appbar } from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-const Account = (props) => {
+const AccountDialog = (props) => {
   return (
     <View style={{ marginTop: 30 }}>
       <View style={{ flexDirection: 'row' }}>
@@ -63,9 +63,8 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: 'blue',
     marginTop: 20
   }
 });
 
-export default Account;
+export default AccountDialog;

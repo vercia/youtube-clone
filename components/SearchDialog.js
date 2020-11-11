@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { View, TextInput,Text } from 'react-native';
-import { Searchbar, Divider} from 'react-native-paper';
+import { View, TextInput } from 'react-native';
+import { Divider} from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-const Search = (props) => {
+const SearchDialog = (props) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const onChangeSearch = (query) => setSearchQuery(query);
@@ -41,4 +41,4 @@ const Search = (props) => {
   );
 };
 
-export default Search;
+export default SearchDialog;
