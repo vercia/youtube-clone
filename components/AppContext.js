@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const AppContext = createContext();
 
 export default function AppContextProvider(props) {
-  const KEY = '0AIzaSyAthwZijUeqfiR1FDUgH8cEIfYnbkTijjM';
+  const KEY = 'AIzaSyD15wmuWdyY5yNlu_44OGjeJOMnWThNLmo';
   const [titleNavigation, setTitleNavigation] = useState('');
 
   return (
