@@ -31,7 +31,7 @@ const TopNavigationDiscovery = (props) => {
         style={{ marginLeft: 20 }}
         onPress={props.back}
       />
-      <Text>{titleNavigation}</Text>
+      <Text style={{left: 8, fontSize: 16}}>{titleNavigation}</Text>
       <View
         style={{
           flexDirection: 'row',
