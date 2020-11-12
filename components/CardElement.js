@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { View, FlatList } from 'react-native';
-import { Card, Paragraph, Title } from 'react-native-paper';
+import VideoCard from './VideoCard';
 
 const CardElement = (props) => {
   const [cardData, setCardData] = useState([]);
+  const [visible, setVisible] = useState(false);
+
+  const test = () => {
+    setVisible(true);
+  };
 
   const fetchData = () => {
-    fetch(
-      props.apiAdress
-    )
+    fetch(props.apiAdress)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -16,28 +19,28 @@ const CardElement = (props) => {
       });
   };
 
+  const renderItem = ({ item, index }) => {
+    return (
+      <VideoCard
+        key={item.snippet.title}
+        title={item.snippet.title}
+        channelTitle={item.snippet.channelTitle}
+        viewCount={item.statistics.viewCount}
+        publishedAt={item.snippet.publishedAt.slice(0,10)}
+        img={item.snippet.thumbnails.medium.url}
+        videoId={item.id}
+        tags={item.snippet.tags.slice(0,4)}
+      />
+    );
+  };
+
   return (
     <View>
       {/* {fetchData()} */}
       <FlatList
         data={cardData}
-        renderItem={({ item }) => {
-          return (
-            <Card>
-              <Card.Cover
-                source={{ uri: item.snippet.thumbnails.medium.url }}
-              />
-              <Card.Content>
-                <Title>{item.snippet.title}</Title>
-                <Paragraph>
-                  {item.snippet.channelTitle} , {item.statistics.viewCount} ,
-                  {item.snippet.publishedAt.slice(0, 10)}
-                </Paragraph>
-              </Card.Content>
-            </Card>
-          );
-        }}
-        style={{ marginTop: 10 }}
+        renderItem={renderItem}
+        keyExtractor={(item, index) => index}
       />
     </View>
   );

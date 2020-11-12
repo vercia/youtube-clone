@@ -11,7 +11,7 @@ const HomeScreen = () => {
     <View>
       <TopNavigation />
       <CardElement
-        apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=10&key=${KEY}`}
+        apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&chart=mostPopular&maxResults=2&regionCode=PL&key=${KEY}`}
       />
     </View>
   );
