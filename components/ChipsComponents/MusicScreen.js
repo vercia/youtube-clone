@@ -4,6 +4,7 @@ import {Avatar,Button} from 'react-native-paper'
 import TopNavigationDiscovery from './TopNavigationDiscovery';
 import CardElement from '../CardElement';
 import { AppContext } from '../AppContext';
+import ProfileDiscovery from '../ProfileDiscovery';
 
 const MusicScreen = ({ navigation }) => {
   const { KEY } = useContext(AppContext);
@@ -11,20 +12,13 @@ const MusicScreen = ({ navigation }) => {
   return (
     <View>
       <TopNavigationDiscovery back={() => navigation.navigate('Odkrywaj')} />
-      <Image
-        source={require('../../images/released.png')}
-        style={{ width: '100%', height: 100 }}
+      <ProfileDiscovery
+        title={'Muzyka'}
+        subtitle={'113 mln subskrypcji'}
+        avatarImg={require('../../images/avatarMusic.jpg')}
+        bannerImg={require('../../images/released.png')}
+        headerText={'Największe hity'}
       />
-      <View>
-        <Avatar.Image
-          size={100}
-          source={require('../../images/avatarMusic.jpg')}
-        />
-        <Text>Muzyka</Text>
-        <Text>113 mln subskrypcji</Text>
-        <Button>SUBSKRYBUJ</Button>
-      </View>
-      <Text>Największe hity</Text>
       <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=10&key=${KEY}`}
       />
