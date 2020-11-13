@@ -6,7 +6,6 @@ import AccountDialog from './TopNavigationDialogs/AccountDialog';
 import CameraDialog from './TopNavigationDialogs/CameraDialog';
 import SearchDialog from './TopNavigationDialogs/SearchDialog';
 import ScreenDialog from './TopNavigationDialogs/ScreenDialog';
-import Test from './Test';
 import SearchStack from './SearchStack';
 
 const TopNavigation = () => {
@@ -45,13 +44,13 @@ const TopNavigation = () => {
           onPress={() => setModalScreenVisible(!modalScreenVisible)}
         />
         <MaterialCommunityIcons
-          name='camera-outline'
+          name='video-outline'
           size={28}
           color='black'
           onPress={() => setModalCameraVisible(!modalCameraVisible)}
         />
         <MaterialCommunityIcons
-          name='search-web'
+          name='magnify'
           size={28}
           color='black'
           onPress={() => setModalSearchVisible(!modalSearchVisible)}

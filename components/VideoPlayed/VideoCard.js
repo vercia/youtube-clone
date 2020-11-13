@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import {
   Card,
   Paragraph,
@@ -60,49 +60,52 @@ const VideoCard = (props) => {
               style={{ position: 'absolute', top: 10, zIndex: 10, left: 10 }}
               onPress={() => setVisible(false)}
             />
-            <YoutubePlayer height={220} play={true} videoId={props.videoId} />
-            <VideoInfo
-              tags={props.tags}
-              title={props.title}
-              viewCount={props.viewCount}
-              publishedAt={props.publishedAt}
-              like={props.like}
-              dislike={props.dislike}
-            />
-            {channelData.map((item) => {
-              return (
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    padding: 15,
-                    alignItems: 'center'
-                  }}
-                  key={item.channelTitle}
-                >
-                  <Avatar.Image
-                    size={40}
-                    source={{ uri: item.snippet.thumbnails.default.url }}
-                  />
-                  <View style={{ left: 15 }}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
-                      {props.channelTitle}
-                    </Text>
-                    <Text>
-                      {renderCount(item.statistics.subscriberCount)} subskrypcji
-                    </Text>
-                  </View>
-                  <Button
-                    color='red'
-                    labelStyle={{ fontWeight: 'bold' }}
-                    style={{ right: 0, position: 'absolute' }}
+            <ScrollView>
+              <YoutubePlayer height={220} play={true} videoId={props.videoId} />
+              <VideoInfo
+                tags={props.tags}
+                title={props.title}
+                viewCount={props.viewCount}
+                publishedAt={props.publishedAt}
+                like={props.like}
+                dislike={props.dislike}
+              />
+              {channelData.map((item) => {
+                return (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      padding: 15,
+                      alignItems: 'center'
+                    }}
+                    key={props.channelTitle}
                   >
-                    SUBSKRYBUJ
-                  </Button>
-                </View>
-              );
-            })}
-            <Divider />
-            <VideoComments comments={props.comments} />
+                    <Avatar.Image
+                      size={40}
+                      source={{ uri: item.snippet.thumbnails.default.url }}
+                    />
+                    <View style={{ left: 15 }}>
+                      <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+                        {props.channelTitle}
+                      </Text>
+                      <Text>
+                        {renderCount(item.statistics.subscriberCount)}{' '}
+                        subskrypcji
+                      </Text>
+                    </View>
+                    <Button
+                      color='red'
+                      labelStyle={{ fontWeight: 'bold' }}
+                      style={{ right: 0, position: 'absolute' }}
+                    >
+                      SUBSKRYBUJ
+                    </Button>
+                  </View>
+                );
+              })}
+              <Divider />
+              <VideoComments comments={props.comments} />
+            </ScrollView>
           </View>
           <StatusBar hidden={true} />
         </Modal>
