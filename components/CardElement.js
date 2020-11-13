@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { View, FlatList } from 'react-native';
 import VideoCard from './VideoCard';
+import { AppContext } from './AppContext';
 
 const CardElement = (props) => {
   const [cardData, setCardData] = useState([]);
   const [visible, setVisible] = useState(false);
+  const {renderCount} = useContext(AppContext)
 
-  const test = () => {
-    setVisible(true);
-  };
+  
 
   const fetchData = () => {
     fetch(props.apiAdress)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCardData(data.items);
       });
   };
@@ -25,11 +24,14 @@ const CardElement = (props) => {
         key={item.snippet.title}
         title={item.snippet.title}
         channelTitle={item.snippet.channelTitle}
-        viewCount={item.statistics.viewCount}
-        publishedAt={item.snippet.publishedAt.slice(0,10)}
+        viewCount={renderCount(item.statistics.viewCount)}
+        publishedAt={item.snippet.publishedAt.slice(0, 10)}
         img={item.snippet.thumbnails.medium.url}
         videoId={item.id}
-        tags={item.snippet.tags.slice(0,4)}
+        tags={item.snippet.tags.slice(0, 4)}
+        like={renderCount(item.statistics.likeCount)}
+        dislike={renderCount(item.statistics.dislikeCount)}
+        comments={renderCount(item.statistics.commentCount)}
       />
     );
   };
