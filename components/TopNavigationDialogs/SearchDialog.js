@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, TextInput } from 'react-native';
-import { Divider} from 'react-native-paper';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Divider } from 'react-native-paper';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { AppContext } from '../AppContext';
 
-const SearchDialog = ( {navigation},props) => {
+const SearchDialog = ({ navigation }) => {
   const [searchQuery, setSearchQuery] = useState('');
+  const {setModalSearchVisible} = useContext(AppContext)
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
@@ -25,7 +27,7 @@ const SearchDialog = ( {navigation},props) => {
           size={24}
           color='black'
           style={{ marginLeft: 20 }}
-          onPress={props.close}
+          onPress={() => setModalSearchVisible(false)}
         />
         <TextInput
           placeholder='Szukaj w YouTube'

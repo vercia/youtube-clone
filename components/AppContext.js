@@ -5,6 +5,10 @@ export const AppContext = createContext();
 export default function AppContextProvider(props) {
   const KEY = 'YOUR_API_KEY';
   const [titleNavigation, setTitleNavigation] = useState('');
+  const [modalSearchVisible, setModalSearchVisible] = useState(false);
+  const [modalScreenVisible, setModalScreenVisible] = useState(false);
+  const [modalCameraVisible, setModalCameraVisible] = useState(false);
+  const [modalAccountVisible, setModalAccountVisible] = useState(false);
 
   const renderCount = (x) => {
     if (x.length == 4) {
@@ -36,7 +40,15 @@ export default function AppContextProvider(props) {
         titleNavigation,
         setTitleNavigation,
         KEY,
-        renderCount
+        renderCount,
+        modalSearchVisible,
+        setModalSearchVisible,
+        modalScreenVisible,
+        setModalScreenVisible,
+        modalCameraVisible,
+        setModalCameraVisible,
+        modalAccountVisible,
+        setModalAccountVisible
       }}
     >
       {props.children}

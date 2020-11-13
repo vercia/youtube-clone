@@ -1,18 +1,24 @@
-import React, {useState} from 'react';
+import React, { useContext } from 'react';
 import { View, Image } from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Modal from 'react-native-modal';
 import AccountDialog from './TopNavigationDialogs/AccountDialog';
 import CameraDialog from './TopNavigationDialogs/CameraDialog';
-import SearchDialog from './TopNavigationDialogs/SearchDialog';
 import ScreenDialog from './TopNavigationDialogs/ScreenDialog';
 import SearchStack from './SearchStack';
+import { AppContext } from './AppContext';
 
 const TopNavigation = () => {
-  const [modalScreenVisible, setModalScreenVisible] = useState(false);
-  const [modalCameraVisible, setModalCameraVisible] = useState(false);
-  const [modalAccountVisible, setModalAccountVisible] = useState(false);
-  const [modalSearchVisible, setModalSearchVisible] = useState(false);
+  const {
+    modalSearchVisible,
+    setModalSearchVisible,
+    modalScreenVisible,
+    setModalScreenVisible,
+    modalCameraVisible,
+    setModalCameraVisible,
+    modalAccountVisible,
+    setModalAccountVisible
+  } = useContext(AppContext);
 
   return (
     <View
@@ -117,9 +123,6 @@ const TopNavigation = () => {
           }}
         >
           <View style={{ backgroundColor: 'white', flex: 1 }}>
-            {/* <SearchDialog
-              close={() => setModalSearchVisible(!modalSearchVisible)}
-            /> */}
             <SearchStack />
           </View>
         </Modal>
