@@ -23,7 +23,7 @@ const AccountDialog = (props) => {
       >
         <Image
           style={styles.tinyLogo}
-          source={require('../images/login.png')}
+          source={require('../../images/login.png')}
         />
         <View
           style={{

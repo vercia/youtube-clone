@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native';
 import { Divider} from 'react-native-paper';
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 
-const SearchDialog = (props) => {
+const SearchDialog = ( {navigation},props) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const onChangeSearch = (query) => setSearchQuery(query);
@@ -34,6 +34,7 @@ const SearchDialog = (props) => {
           style={{ width: '80%', height: 50, fontSize: 20, paddingLeft: 10 }}
           returnKeyType='search'
           autoFocus={true}
+          onSubmitEditing={() => navigation.navigate('Test')}
         />
       </View>
       <Divider />

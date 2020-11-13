@@ -23,7 +23,7 @@ const CameraDialog = (props) => {
       >
         <Image
           style={styles.tinyLogo}
-          source={require('../images/movie.png')}
+          source={require('../../images/movie.png')}
         />
           <Text
             style={{
