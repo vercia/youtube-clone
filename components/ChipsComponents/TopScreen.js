@@ -10,9 +10,9 @@ const TopScreen = ({ navigation }) => {
   return (
     <View>
       <TopNavigationDiscovery back={() => navigation.navigate('Odkrywaj')} />
-      <CardElement
+      {/* <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=10&key=${KEY}`}
-      />
+      /> */}
     </View>
   );
 };

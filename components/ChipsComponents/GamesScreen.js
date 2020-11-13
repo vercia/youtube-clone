@@ -31,9 +31,9 @@ const GamesScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <CardElement
+      {/* <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=20&key=${KEY}`}
-      />
+      /> */}
     </View>
   );
 };

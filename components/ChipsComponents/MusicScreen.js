@@ -19,9 +19,9 @@ const MusicScreen = ({ navigation }) => {
         bannerImg={require('../../images/released.png')}
         headerText={'Największe hity'}
       />
-      <CardElement
+      {/* <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=10&key=${KEY}`}
-      />
+      /> */}
     </View>
   );
 };

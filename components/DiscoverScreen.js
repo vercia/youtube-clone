@@ -90,9 +90,9 @@ const DiscoverScreen = ({ navigation }) => {
         <Text style={{ fontSize: 18, padding: 15 }}>
           Filmy zyskujące popularność
         </Text>
-        <CardElement
+        {/* <CardElement
           apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=5&regionCode=PL&key=${KEY}`}
-        />
+        /> */}
       </ScrollView>
     </View>
   );

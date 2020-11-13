@@ -18,9 +18,9 @@ const NewsScreen = ({ navigation }) => {
         bannerImg={require('../../images/news.jpg')}
         headerText={'Najważniejsze wiadomości'}
       />
-      <CardElement
+      {/* <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=25&key=${KEY}`}
-      />
+      /> */}
     </View>
   );
 };
