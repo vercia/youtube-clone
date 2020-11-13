@@ -3,9 +3,9 @@ import { View, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { List, Divider } from 'react-native-paper';
 import Modal from 'react-native-modal';
-import CameraDialog from '../CameraDialog';
-import SearchDialog from '../SearchDialog';
-import ScreenDialog from '../ScreenDialog';
+import CameraDialog from '../TopNavigationDialogs/CameraDialog';
+import SearchDialog from '../TopNavigationDialogs/SearchDialog';
+import ScreenDialog from '../TopNavigationDialogs/ScreenDialog';
 import { AppContext } from '../AppContext';
 
 const TopNavigationDiscovery = (props) => {

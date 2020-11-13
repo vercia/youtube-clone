@@ -1,6 +1,6 @@
 import React, { useState,useContext } from 'react';
 import { View, FlatList } from 'react-native';
-import VideoCard from './VideoCard';
+import VideoCard from './VideoPlayed/VideoCard';
 import { AppContext } from './AppContext';
 
 const CardElement = (props) => {
