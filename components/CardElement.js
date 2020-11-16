@@ -1,20 +1,17 @@
-import React, { useState,useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, FlatList } from 'react-native';
 import VideoCard from './VideoPlayed/VideoCard';
 import { AppContext } from './AppContext';
 
 const CardElement = (props) => {
-  const [cardData, setCardData] = useState([]);
-  const [visible, setVisible] = useState(false);
-  const {renderCount} = useContext(AppContext)
-
-  
+  const { renderCount, setCardData, cardData } = useContext(AppContext);
 
   const fetchData = () => {
     fetch(props.apiAdress)
       .then((res) => res.json())
-      .then((data) => {
-        setCardData(data.items);
+      .then((data,) => {
+        props.setState(data.items);
+        console.log(data);
       });
   };
 
@@ -36,13 +33,15 @@ const CardElement = (props) => {
     );
   };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <View>
-      {/* {fetchData()} */}
       <FlatList
-        data={cardData}
+        data={props.state}
         renderItem={renderItem}
-        keyExtractor={(item, index) => index}
       />
     </View>
   );
