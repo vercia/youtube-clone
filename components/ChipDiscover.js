@@ -5,7 +5,6 @@ const ChipDiscover = (props) => {
   return (
     <Chip
       icon={props.icon}
-      onPress={() => console.log('Pressed')}
       style={{
         height: 50,
         width: '90%',

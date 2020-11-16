@@ -3,12 +3,16 @@ import React, { createContext, useState } from 'react';
 export const AppContext = createContext();
 
 export default function AppContextProvider(props) {
-  const KEY = 'YOUR_API_KEY';
+  const KEY = '0AIzaSyCbcfkbOHUHouq3v3Jb47mIq3ChFhptZuE';
   const [titleNavigation, setTitleNavigation] = useState('');
   const [modalSearchVisible, setModalSearchVisible] = useState(false);
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
   const [modalCameraVisible, setModalCameraVisible] = useState(false);
   const [modalAccountVisible, setModalAccountVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchData, setSearchData] = useState([]);
+  const [cardData, setCardData] = useState([])
+  const [chipData, setChipData] = useState([]);
 
   const renderCount = (x) => {
     if (x.length == 4) {
@@ -34,6 +38,16 @@ export default function AppContextProvider(props) {
     }
   };
 
+  const fetchSearch = () => {
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&q=${searchQuery}&type=video&key=${KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchData(data.items);
+      });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -48,7 +62,15 @@ export default function AppContextProvider(props) {
         modalCameraVisible,
         setModalCameraVisible,
         modalAccountVisible,
-        setModalAccountVisible
+        setModalAccountVisible,
+        fetchSearch,
+        searchQuery,
+        setSearchQuery,
+        searchData,
+        cardData,
+        setCardData,
+        chipData,
+        setChipData
       }}
     >
       {props.children}
