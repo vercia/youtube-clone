@@ -5,10 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AppContext } from '../AppContext';
 
 const SearchDialog = ({ navigation }) => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const {setModalSearchVisible} = useContext(AppContext)
-
-  const onChangeSearch = (query) => setSearchQuery(query);
+  const { setModalSearchVisible, searchQuery,setSearchQuery, fetchSearch } = useContext(AppContext);
 
   return (
     <View
@@ -31,12 +28,12 @@ const SearchDialog = ({ navigation }) => {
         />
         <TextInput
           placeholder='Szukaj w YouTube'
-          onChangeText={onChangeSearch}
+          onChangeText={(text) => setSearchQuery(text)}
           value={searchQuery}
           style={{ width: '80%', height: 50, fontSize: 20, paddingLeft: 10 }}
           returnKeyType='search'
           autoFocus={true}
-          onSubmitEditing={() => navigation.navigate('Test')}
+          onSubmitEditing={() => {navigation.navigate('SearchScreen'), fetchSearch()}}
         />
       </View>
       <Divider />
