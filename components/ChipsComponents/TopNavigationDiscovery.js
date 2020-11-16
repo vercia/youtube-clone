@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { View, Text } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { List, Divider } from 'react-native-paper';
@@ -9,11 +9,17 @@ import ScreenDialog from '../TopNavigationDialogs/ScreenDialog';
 import { AppContext } from '../AppContext';
 
 const TopNavigationDiscovery = (props) => {
-  const [modalScreenVisible, setModalScreenVisible] = useState(false);
-  const [modalCameraVisible, setModalCameraVisible] = useState(false);
-  const [modalOptionsVisible, setModalOptionsVisible] = useState(false);
-  const [modalSearchVisible, setModalSearchVisible] = useState(false);
-  const {titleNavigation} = useContext(AppContext)
+  const {
+    titleNavigation,
+    modalSearchVisible,
+    setModalSearchVisible,
+    modalOptionsVisible,
+    setModalOptionsVisible,
+    modalCameraVisible,
+    setModalCameraVisible,
+    modalScreenVisible,
+    setModalScreenVisible
+  } = useContext(AppContext);
 
   return (
     <View
@@ -31,7 +37,7 @@ const TopNavigationDiscovery = (props) => {
         style={{ marginLeft: 20 }}
         onPress={props.back}
       />
-      <Text style={{left: 8, fontSize: 16}}>{titleNavigation}</Text>
+      <Text style={{ left: 8, fontSize: 16 }}>{titleNavigation}</Text>
       <View
         style={{
           flexDirection: 'row',

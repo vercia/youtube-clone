@@ -9,6 +9,7 @@ export default function AppContextProvider(props) {
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
   const [modalCameraVisible, setModalCameraVisible] = useState(false);
   const [modalAccountVisible, setModalAccountVisible] = useState(false);
+  const [modalOptionsVisible, setModalOptionsVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchData, setSearchData] = useState([]);
   const [cardData, setCardData] = useState([])
@@ -70,7 +71,9 @@ export default function AppContextProvider(props) {
         cardData,
         setCardData,
         chipData,
-        setChipData
+        setChipData,
+        modalOptionsVisible,
+        setModalOptionsVisible
       }}
     >
       {props.children}
