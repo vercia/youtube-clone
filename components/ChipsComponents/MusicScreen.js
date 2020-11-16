@@ -7,7 +7,7 @@ import { AppContext } from '../AppContext';
 import ProfileDiscovery from '../ProfileDiscovery';
 
 const MusicScreen = ({ navigation }) => {
-  const { KEY } = useContext(AppContext);
+  const { KEY,setChipData,chipData } = useContext(AppContext);
 
   return (
     <View>
@@ -19,9 +19,11 @@ const MusicScreen = ({ navigation }) => {
         bannerImg={require('../../images/released.png')}
         headerText={'Największe hity'}
       />
-      {/* <CardElement
-        apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=10&key=${KEY}`}
-      /> */}
+      <CardElement
+        apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=2&regionCode=PL&videoCategoryId=10&key=${KEY}`}
+        setState={setChipData}
+        state={chipData}
+      />
     </View>
   );
 };

@@ -6,7 +6,7 @@ import CardElement from '../CardElement';
 import ProfileDiscovery from '../ProfileDiscovery';
 
 const NewsScreen = ({ navigation }) => {
-  const { KEY } = useContext(AppContext);
+  const { KEY, setChipData, chipData } = useContext(AppContext);
 
   return (
     <View>
@@ -18,9 +18,11 @@ const NewsScreen = ({ navigation }) => {
         bannerImg={require('../../images/news.jpg')}
         headerText={'Najważniejsze wiadomości'}
       />
-      {/* <CardElement
+      <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=25&key=${KEY}`}
-      /> */}
+        setState={setChipData}
+        state={chipData}
+      />
     </View>
   );
 };

@@ -6,7 +6,7 @@ import CardElement from '../CardElement';
 import { AppContext } from '../AppContext';
 
 const GamesScreen = ({ navigation }) => {
-  const { KEY } = useContext(AppContext);
+  const { KEY, setChipData,chipData } = useContext(AppContext);
 
   return (
     <View>
@@ -31,9 +31,11 @@ const GamesScreen = ({ navigation }) => {
           </View>
         </View>
       </View>
-      {/* <CardElement
+      <CardElement
         apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=statistics&part=snippet&chart=mostPopular&maxResults=5&regionCode=PL&videoCategoryId=20&key=${KEY}`}
-      /> */}
+        setState={setChipData}
+        state={chipData}
+      />
     </View>
   );
 };
