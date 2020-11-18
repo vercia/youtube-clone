@@ -9,7 +9,7 @@ import {AppContext} from './AppContext'
 const SearchScreen = ({navigation}) => {
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
 
-  const { titleNavigation, setModalSearchVisible, searchQuery, setSearchQuery } = useContext(
+  const { setModalSearchVisible, searchQuery, setSearchQuery } = useContext(
     AppContext
   );
 
@@ -30,7 +30,7 @@ const SearchScreen = ({navigation}) => {
           style={{ marginLeft: 20 }}
           onPress={() => {setModalSearchVisible(false), setSearchQuery('')}}
         />
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity onPress={() => navigation.goBack()} style={{width:150}}>
           <Text style={{ left: 8, fontSize: 16 }}>{searchQuery}</Text>
         </TouchableOpacity>
         <View
