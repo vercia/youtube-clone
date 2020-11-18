@@ -3,13 +3,14 @@ import React, { createContext, useState } from 'react';
 export const AppContext = createContext();
 
 export default function AppContextProvider(props) {
-  const KEY = '0AIzaSyCbcfkbOHUHouq3v3Jb47mIq3ChFhptZuE';
+  const KEY = '0AIzaSyDQic1xqNWLuiQuna439e36h5NMo04OvCE';
   const [titleNavigation, setTitleNavigation] = useState('');
   const [modalSearchVisible, setModalSearchVisible] = useState(false);
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
   const [modalCameraVisible, setModalCameraVisible] = useState(false);
   const [modalAccountVisible, setModalAccountVisible] = useState(false);
   const [modalOptionsVisible, setModalOptionsVisible] = useState(false);
+  const [modalCommentsVisible, setModalCommentsVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchData, setSearchData] = useState([]);
   const [cardData, setCardData] = useState([])
@@ -73,7 +74,9 @@ export default function AppContextProvider(props) {
         chipData,
         setChipData,
         modalOptionsVisible,
-        setModalOptionsVisible
+        setModalOptionsVisible,
+        modalCommentsVisible,
+        setModalCommentsVisible
       }}
     >
       {props.children}
