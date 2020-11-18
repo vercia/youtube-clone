@@ -104,7 +104,7 @@ const VideoCard = (props) => {
                 );
               })}
               <Divider />
-              <VideoComments comments={props.comments} />
+              <VideoComments comments={props.comments} videoId={props.videoId} />
             </ScrollView>
           </View>
           <StatusBar hidden={true} />
