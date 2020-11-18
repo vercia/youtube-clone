@@ -31,7 +31,7 @@ const VideoInfo = (props) => {
     <View>
       <View style={{ left: 10 }}>
         <Text style={{ color: 'blue', padding: 5 }}>
-          #{props.tags.join(' #')}
+          {props.tags ? '#' + props.tags.join(' #') : false}
         </Text>
         <Text style={{ fontSize: 18, width: '90%', padding: 5 }}>
           {props.title}
@@ -49,7 +49,7 @@ const VideoInfo = (props) => {
       >
         {arrOfIcons.map((item) => {
           return (
-            <View style={{ alignItems: 'center' }}>
+            <View style={{ alignItems: 'center' }} key={item.icon}>
               <AntDesign name={item.icon} size={24} color='black' />
               <Text>{item.text}</Text>
             </View>
