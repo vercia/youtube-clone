@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import CardElement from './CardElement'
 
 const DiscoverScreen = ({ navigation }) => {
-  const { setTitleNavigation, KEY } = useContext(AppContext);
+  const { setTitleNavigation, KEY, setCardData, cardData } = useContext(AppContext);
 
   const firstColumn = [
     {
@@ -90,9 +90,11 @@ const DiscoverScreen = ({ navigation }) => {
         <Text style={{ fontSize: 18, padding: 15 }}>
           Filmy zyskujące popularność
         </Text>
-        {/* <CardElement
+        <CardElement
           apiAdress={`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=2&regionCode=PL&key=${KEY}`}
-        /> */}
+          setState={setCardData}
+          state={cardData}
+        />
       </ScrollView>
     </View>
   );
