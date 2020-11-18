@@ -49,7 +49,7 @@ const VideoInfoSearch = (props) => {
       >
         {arrOfIcons.map((item) => {
           return (
-            <View style={{ alignItems: 'center' }}>
+            <View style={{ alignItems: 'center' }} key={item.icon}>
               <AntDesign name={item.icon} size={24} color='black' />
               <Text>{item.text}</Text>
             </View>

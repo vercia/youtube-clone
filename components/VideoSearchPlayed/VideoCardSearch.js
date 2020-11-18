@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import {
   Card,
@@ -14,6 +14,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Feather } from '@expo/vector-icons';
 import { AppContext } from '../AppContext';
 import VideoInfoSearch from './VideoInfoSearch';
+import VideoComments from '../VideoPlayed/VideoComments';
 
 const VideoCardSearch = (props) => {
   const [visible, setVisible] = useState(false);
@@ -41,12 +42,12 @@ const VideoCardSearch = (props) => {
       });
   };
 
-  useEffect(() => {
-    fetchSearchVideo();
-  });
-
   return (
-    <Card onPress={() => setVisible(true)}>
+    <Card
+      onPress={() => {
+        setVisible(true), fetchSearchVideo();
+      }}
+    >
       {/* {visible === true ? fetchChannels() : false} */}
       <Card.Cover source={{ uri: props.img }} />
       <Card.Content>
@@ -76,7 +77,7 @@ const VideoCardSearch = (props) => {
             />
             <ScrollView>
               <YoutubePlayer height={220} play={true} videoId={props.videoId} />
-              {/* {infoData.map((item) => {
+              {infoData.map((item) => {
                 return (
                   <VideoInfoSearch
                     key={item.snippet.title}
@@ -89,7 +90,7 @@ const VideoCardSearch = (props) => {
                     dislike={renderCount(item.statistics.dislikeCount)}
                   />
                 );
-              })} */}
+              })}
               {channelData.map((item) => {
                 return (
                   <View
@@ -124,7 +125,15 @@ const VideoCardSearch = (props) => {
                 );
               })}
               <Divider />
-              {/* <VideoComments comments={props.comments} /> */}
+              {infoData.map((item) => {
+                return (
+                  <VideoComments
+                    comments={renderCount(item.statistics.commentCount)}
+                    videoId={props.videoId}
+                    key={props.videoId}
+                  />
+                );
+              })}
             </ScrollView>
           </View>
           <StatusBar hidden={true} />
