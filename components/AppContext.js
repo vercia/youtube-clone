@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const AppContext = createContext();
 
 export default function AppContextProvider(props) {
-  const KEY = '0AIzaSyDQic1xqNWLuiQuna439e36h5NMo04OvCE';
+  const KEY = 'YOUR_API_KEY';
   const [titleNavigation, setTitleNavigation] = useState('');
   const [modalSearchVisible, setModalSearchVisible] = useState(false);
   const [modalScreenVisible, setModalScreenVisible] = useState(false);
